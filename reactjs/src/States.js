@@ -12,3 +12,9 @@ export const useToggle = (initialVal = false) => {
     return [state, toggle]
 
 }
+
+/* const[isVisible, setVisible] = useState(false); 
+
+const changeVisibility = () => {
+    setVisible(!isVisible);
+} */

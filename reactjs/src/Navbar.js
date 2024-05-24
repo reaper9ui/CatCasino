@@ -1,18 +1,22 @@
 import { Sidebar } from './Sidebar';
-import { useState } from 'react'; 
-
-
-
-
+import {useState} from 'react'; 
+import {Link} from "react-router-dom";
 
  export function Navbar(){
-    return <nav className="nav">
-      
+    const[isVisible, setVisible] = useState(false); 
+
+    const changeVisibility = () => setVisible(!isVisible);
+
+
+    return (
+    <div>
+    <nav className="nav">
       <div className="left">
       <ul>
         <li>
          <button 
-              className='SidebarButton'
+         className='SidebarButton'
+         onClick = {changeVisibility}
               >
              Sidebar 
         </button> 
@@ -24,15 +28,17 @@ import { useState } from 'react';
        </div> 
        <div className="right">
         <ul>
+          
             <li>
-                <a href = "/Login">Login</a>
+            <Link to="/Login">Login</Link>
             </li>
             <li>
-            <a href = "/Signup">Sign up</a>
+            <Link to ='/Signup'>Signup</Link>
             </li>
         </ul>
         </div>
-   
     </nav>
-
+    {isVisible && <Sidebar /> }  
+    </div>
+    ); 
 }

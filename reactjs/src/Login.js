@@ -9,7 +9,7 @@ import {useState} from 'react';
 
 export const Login = () => {
 
-    const[action, setAction] = useState("Signup"); 
+    const[action, setAction] = useState("Login"); 
 
     return(
         <div className= "container"> 
@@ -36,7 +36,7 @@ export const Login = () => {
       
         </div>
         </div>
-        {action === "Signup"? <div></div> :<div className = "forgot-password">Lost password? <span>Click here</span></div> }
+        {action === "Signup"? <div></div> :<div className = "forgot-password">Forgot password? <span>Click here</span></div> }
       
         <div className ="submit-container">
             <div className=
@@ -49,8 +49,6 @@ export const Login = () => {
             >Login </div>
 
         </div>
-
         </div>
-
     );
 }

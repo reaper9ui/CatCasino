@@ -1,2 +1,32 @@
 
+.main{
+    display: flex;
+    height: 100vh;
+    background-color: papayawhip;
+}
 
+.main :first-child{
+    justify-content: start;
+}
+.factContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    height: 300px;
+    width: 300px;
+    padding: 10px;
+
+
+    border: 2px solid black;
+
+
+}
+.catbutt{
+
+}
+.catbutt:hover{
+    cursor: pointer;
+    box-shadow: 200px;
+}

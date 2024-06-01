@@ -7,9 +7,12 @@ import LockIcon from '@mui/icons-material/Lock';
 import {useState} from 'react';
 
 
+ 
+
 export const Login = () => {
 
     const[action, setAction] = useState("Login"); 
+
 
     return(
         <div className= "container"> 
@@ -47,8 +50,9 @@ export const Login = () => {
             {action==="Signup"?"submit gray":"submit"}
             onClick={()=> {setAction("Login")}}
             >Login </div>
-
         </div>
+
+
         </div>
     );
 }

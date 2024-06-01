@@ -3,6 +3,7 @@ import axios from 'axios';
 import {useState, useEffect} from 'react';
 import catButton from './imgs/catbutton.png'; 
 import catClose from './imgs/catsuper.avif'; 
+
 export function Main() {
     const [ catFact, setFact] = useState(""); 
 

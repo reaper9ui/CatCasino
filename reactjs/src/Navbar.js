@@ -5,7 +5,7 @@ import SegmentIcon from '@mui/icons-material/Segment';
 import CloseIcon from '@mui/icons-material/Close'; 
 import { SidebarData } from './SidebarData';
 import "./Navbar.css"; 
-
+import catLogo from './imgs/catcasinologo.png'; 
 
  export function Navbar(){
     const[isVisible, setVisible] = useState(false); 
@@ -24,7 +24,14 @@ import "./Navbar.css";
           </Link>
       </li>
       <li>
-  <Link to="/">SiteName</Link>
+  <Link to="/">SiteName
+  {/*   <img
+       src={catLogo}
+       alt="logo"
+       className='catlogo'
+       style={{width:"130px", height: '130px'}}
+                />  */}
+    </Link>
         </li>
        </ul>
        </div> 

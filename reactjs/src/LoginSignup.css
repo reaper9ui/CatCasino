@@ -12,10 +12,10 @@ body{
     flex-direction: column;
     margin:auto;
     margin-top: 35px; 
-    width: 600px;
+    width: 650px;
     background:#8A865D;
     color: black;
-    border: 1px solid black;
+    border: 2px solid black;
    
 }
 
@@ -46,30 +46,40 @@ body{
     flex-direction: column;
     gap: 15px;
     
+    
 }
 
 .input{
     display:flex;
+
     align-items:center;
+    justify-content: center;
     margin:auto;
     width: 480px; 
     height: 80px;
     background-color:beige;
     border-radius: 6px;
-}
+    border: 2px solid black;
+ 
 
+}
 .icon{
     margin: 0px 30px; 
 }
 
 .input input{
-    height: 50px;
-    width: 400px;
+    height: 30px;
+    width: 300px;
     background:transparent;
     border:none;
     outline:none;
     color: gray;
     font-size: 19px;
+
+}
+
+.forminput{
+    padding-top: 22px;
 }
 
 .forgot-password{
@@ -84,6 +94,7 @@ body{
 .submit-container{
     display: flex;
     gap: 30px;
+    width: 600px;
     margin: 40px auto;
 }
 
@@ -104,5 +115,25 @@ body{
 
 .gray{
     background-color: gray;
+
+}
+
+.submission{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: gray;
+    color: white;
+    width:220px;
+    height: 59px;
+    border-radius: 50px;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.submission:hover{
+    background-color: brown;
 
 }

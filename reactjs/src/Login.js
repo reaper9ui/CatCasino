@@ -35,7 +35,7 @@ export const Login = () => {
 
         <div className="input">
         <LockIcon className="icon" />
-        <input type='text' placeholder = "Password"></input>
+        <input type='password' placeholder = "Password"></input>
       
         </div>
         </div>

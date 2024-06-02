@@ -4,9 +4,10 @@ import EmailIcon from '@mui/icons-material/Email';
 import PersonIcon from '@mui/icons-material/Person';
 import LockIcon from '@mui/icons-material/Lock';
 import {useState, useRef} from 'react';
-import { Form } from 'antd';
+import { Form, Button, Input } from 'antd';
 import { createUser } from './createUser';
-
+import { errorNotification } from './Notification';
+import { successNotification } from './Notification';
 
 export const Signup = () => {
 
@@ -21,20 +22,20 @@ export const Signup = () => {
         createUser(user)
         .then(() => {
             console.log("user addede yayy :3"); 
-            //should add a success notification 
+            successNotification("yayayay"); 
         }).catch(err => {
             console.log(err.response);
             err.response.json().then(res=>{
                 console.log(res);
-                errorNotification("Try again later",
-            )})
-        });    
-    }
+                errorNotification("Try again later",); 
+            });
+        }).finally(()=>{
+            setSubmitting(false);
+        }); 
+    };
 
-    const onFinishFailed = user =>{
-        setSubmitting(false); 
-        
-    }
+const onFinishFailed = errorInfo => {
+    alert(JSON.stringify(errorInfo, null, 2 ))} ;
 
     return(
         <div className= "container"> 
@@ -46,14 +47,15 @@ export const Signup = () => {
             </div>
      <Form
         ref={formRef}
-        onFinishFailed={onFinishFailed}
         onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
         initialValues={{remember :true}}
      > 
         <div className = "inputs">   
         <div className="input" >
         <PersonIcon className="icon" />
     <Form.Item 
+        className='forminput'
         name="username"
         rules={[
             {required:true, message: "Username required "},
@@ -61,11 +63,11 @@ export const Signup = () => {
         <input type='text' placeholder = "Name"></input>
     </Form.Item> 
         </div>
-       
         {action === "Signup"? <div 
         className="input">
         <EmailIcon className="icon" />
     <Form.Item 
+         className='forminput'
         name="email"
         rules={[
             {required:true, message: "Email required "},
@@ -78,12 +80,16 @@ export const Signup = () => {
         <div className="input">
         <LockIcon className="icon" />
     <Form.Item 
+         className='forminput'
         name="password"
         rules={[
             {required:true, message: "password required "},
-            {type: "email", message: "must be valid email"}
+            {type: "password", message: "must be valid password"}
         ]}>
-        <input type='text' placeholder = "Password"></input>
+        <input 
+        type="password"
+         placeholder = "Password">
+         </input>
         </Form.Item> 
         </div>
         </div>
@@ -92,14 +98,24 @@ export const Signup = () => {
         {action === "Signup"? <div></div> :<div className = "forgot-password">Lost password? <span>Click here</span></div> }
       
         <div className ="submit-container">
-            <div className=
+            <button className=
             {action==="Login"?"submit gray":"submit"} 
             onClick={()=> {setAction("Signup")}}
-            >Sign up </div>
-            <div className=
-            {action==="Signup"?"submit gray":"submit"}
+            >Sign up </button>
+           
+         <button 
+         className= "submission"
+         type="primary" 
+         htmlType="submit"
+         >
+         Submit
+         </button>
+      
+            <button className=
+             {action==="Signup"?"submit gray":"submit"}
             onClick={()=> {setAction("Login")}}
-            >Login </div>
+            >Login </button>
+        
 
         </div>
       {submitting}

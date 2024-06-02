@@ -2,7 +2,11 @@
 .main{
     display: flex;
     height: 100vh;
+    width: 100vw;
     background-color: papayawhip;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .main :first-child{

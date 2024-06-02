@@ -17,15 +17,17 @@ export const Signup = () => {
 
 
     const onFinish = user => {
+        console.log("onFinish called with:", user);
         setSubmitting(true); 
-        console.log(JSON.stringify(user, null, 2)); 
+        console.log(JSON.stringify(user , null, 2)); 
         createUser(user)
         .then(() => {
             console.log("user addede yayy :3"); 
             successNotification("yayayay"); 
-        }).catch(err => {
+        })
+        .catch(err => { 
             console.log(err.response);
-            err.response.json().then(res=>{
+            err.response?.json().then(res=>{
                 console.log(res);
                 errorNotification("Try again later",); 
             });
@@ -93,8 +95,6 @@ const onFinishFailed = errorInfo => {
         </Form.Item> 
         </div>
         </div>
-    
-    </Form> 
         {action === "Signup"? <div></div> :<div className = "forgot-password">Lost password? <span>Click here</span></div> }
       
         <div className ="submit-container">
@@ -103,6 +103,7 @@ const onFinishFailed = errorInfo => {
             onClick={()=> {setAction("Signup")}}
             >Sign up </button>
            
+
          <button 
          className= "submission"
          type="primary" 
@@ -118,6 +119,7 @@ const onFinishFailed = errorInfo => {
         
 
         </div>
+        </Form> 
       {submitting}
         </div>
       

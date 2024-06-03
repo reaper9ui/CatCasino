@@ -16,4 +16,9 @@ public class UserService {
     public User createUser(User user) {
       return userRepo.save(user);
     }
+
+    public User getUser(User user){
+        return userRepo.findById(user.getId()).orElse(null);
+    }
+
 }

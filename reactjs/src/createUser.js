@@ -23,3 +23,12 @@ export const createUser = user => {
     }
     ).then(checkStatus) ;
 }
+
+const checkUser = () => {
+    return fetch("/api/v1/data", {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(checkStatus);
+};

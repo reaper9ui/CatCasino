@@ -15,7 +15,6 @@ export const Signup = () => {
     const[submitting, setSubmitting] = useState(false);  
     const formRef = useRef(null); // Functional component with hooks
 
-
     const onFinish = user => {
         console.log("onFinish called with:", user);
         setSubmitting(true); 
@@ -116,8 +115,6 @@ const onFinishFailed = errorInfo => {
              {action==="Signup"?"submit gray":"submit"}
             onClick={()=> {setAction("Login")}}
             >Login </button>
-        
-
         </div>
         </Form> 
       {submitting}

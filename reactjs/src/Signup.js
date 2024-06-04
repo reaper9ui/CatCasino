@@ -8,9 +8,10 @@ import { Form, Button, Input } from 'antd';
 import { createUser } from './createUser';
 import { errorNotification } from './Notification';
 import { successNotification } from './Notification';
+import {Link} from 'react-router-dom'; 
+
 
 export const Signup = () => {
-
     const[action, setAction] = useState("Signup"); 
     const[submitting, setSubmitting] = useState(false);  
     const formRef = useRef(null); // Functional component with hooks
@@ -55,6 +56,8 @@ const onFinishFailed = errorInfo => {
         <div className = "inputs">   
         <div className="input" >
         <PersonIcon className="icon" />
+   
+   
     <Form.Item 
         className='forminput'
         name="username"
@@ -63,10 +66,15 @@ const onFinishFailed = errorInfo => {
         ]}>
         <input type='text' placeholder = "Name"></input>
     </Form.Item> 
+   
+   
         </div>
         {action === "Signup"? <div 
         className="input">
         <EmailIcon className="icon" />
+   
+   
+   
     <Form.Item 
          className='forminput'
         name="email"
@@ -75,11 +83,17 @@ const onFinishFailed = errorInfo => {
             {type: "email", message: "must be valid email"}
         ]}>
         <input type='text' placeholder = "Email"></input>
+   
+   
     </Form.Item>
+   
+   
         </div> : <div></div>}
 
         <div className="input">
         <LockIcon className="icon" />
+   
+   
     <Form.Item 
          className='forminput'
         name="password"
@@ -92,8 +106,11 @@ const onFinishFailed = errorInfo => {
          placeholder = "Password">
          </input>
         </Form.Item> 
+       
+       
         </div>
         </div>
+       
         {action === "Signup"? <div></div> :<div className = "forgot-password">Lost password? <span>Click here</span></div> }
       
         <div className ="submit-container">
@@ -102,7 +119,6 @@ const onFinishFailed = errorInfo => {
             onClick={()=> {setAction("Signup")}}
             >Sign up </button>
            
-
          <button 
          className= "submission"
          type="primary" 
@@ -111,10 +127,10 @@ const onFinishFailed = errorInfo => {
          Submit
          </button>
       
-            <button className=
-             {action==="Signup"?"submit gray":"submit"}
-            onClick={()=> {setAction("Login")}}
-            >Login </button>
+            <button className= "switcher"
+            ><
+            Link to="/Login">Login</Link> 
+            </button>
         </div>
         </Form> 
       {submitting}

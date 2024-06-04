@@ -14,8 +14,8 @@ const checkStatus = response => {
 
 export const createUser = user => {
     console.log("createUser called with:", user);
-    return fetch ( "/api/v1/users",  {
-    method: 'POST', 
+    return fetch ( "/api/v1/users",  {/*  options part of fetch method {}  */
+    method: 'POST',  
     headers: {
     'Content-Type': 'application/json'
     },
@@ -24,11 +24,13 @@ export const createUser = user => {
     ).then(checkStatus) ;
 }
 
-const checkUser = () => {
-    return fetch("/api/v1/data", {
+export const checkUser = username => {
+    console.log("LALALALALA: ", username); 
+    console.log("Stringifeid: ", username.username);
+    return fetch(`/api/v1/users/${username.username}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         }
-    }).then(checkStatus);
+    })
 };

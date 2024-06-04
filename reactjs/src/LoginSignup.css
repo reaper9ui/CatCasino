@@ -137,3 +137,25 @@ body{
     background-color: brown;
 
 }
+
+.switcher{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: gray;
+    color: white;
+    width:220px;
+    height: 59px;
+    border-radius: 50px;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.switcher a{
+    color: white;
+}
+
+.switcher:hover{
+    background-color: brown;
+}

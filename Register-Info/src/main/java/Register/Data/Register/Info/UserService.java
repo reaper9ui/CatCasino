@@ -1,7 +1,12 @@
 package Register.Data.Register.Info;
 
+import jakarta.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 @Service
 public class UserService {
@@ -17,8 +22,11 @@ public class UserService {
       return userRepo.save(user);
     }
 
-    public User getUser(User user){
-        return userRepo.findById(user.getId()).orElse(null);
+
+    public User getUser(String user){
+        User used = userRepo.findByUsername(user);
+        if(used == null)return null;
+        return userRepo.findById(used.getId()).orElse(null);
     }
 
 }

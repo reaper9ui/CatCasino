@@ -11,6 +11,10 @@ import java.util.UUID;
 @Service
 public class UserService {
 
+
+  // Map<Integer, User> db = new HashMap<>();
+    
+
     private final UserRepository userRepo;
 
     @Autowired

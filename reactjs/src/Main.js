@@ -23,6 +23,12 @@ export function Main() {
     <div className =
     "main"> 
 
+    <div className = "welcome">
+    <h1>Welcome _____ To Cat Casino</h1>
+    </div>
+    <div>
+        <hr/>
+    </div>
     <div className = "factContainer">
         <h2>Click Cat :3</h2>
         {catFact}

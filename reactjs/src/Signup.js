@@ -119,13 +119,13 @@ const onFinishFailed = errorInfo => {
             onClick={()=> {setAction("Signup")}}
             >Sign up </button>
            
-         <button 
+         <Button 
          className= "submission"
          type="primary" 
          htmlType="submit"
          >
          Submit
-         </button>
+         </Button>
       
             <button className= "switcher"
             ><
@@ -133,7 +133,7 @@ const onFinishFailed = errorInfo => {
             </button>
         </div>
         </Form> 
-      {submitting}
+ 
         </div>
       
     );

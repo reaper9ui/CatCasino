@@ -4,35 +4,37 @@ import './LoginSignup.css';
 import EmailIcon from '@mui/icons-material/Email';
 import PersonIcon from '@mui/icons-material/Person';
 import LockIcon from '@mui/icons-material/Lock';
-import {useState, useRef} from 'react';
+import {useState, useRef, createContext, useContext} from 'react'; 
 import { Form, Button, Input } from 'antd';
 import { checkUser } from './createUser';
- 
+import {Link} from 'react-router-dom';
+
 
 export const Login = () => {
 
     const[action, setAction] = useState("Login"); 
     const[submitted, setSubmitted] = useState(false); 
     const formRef = useRef(null);
+    
 
     const onFinish = user =>{
         console.log("we have entered the on finish :O" , user);
 
         checkUser(user) 
+    
         .then(() => {
             console.log("return", user.username);
-        }).finally( ()=> {
-            setSubmitted(false);
-        }); 
+            setSubmitted(true);
+        });
     }
 
-    const onFinishFailed = user =>{
-        console.log("womp womp little fella")
-    }
+    const onFinishFailed = errorInfo =>{
+          alert(JSON.stringify(errorInfo, null, 2 ))} ;
+
 
     return(
 
-        
+    submitted === false ?        
         <div className= "container"> 
             <Form
             ref={formRef} 
@@ -71,7 +73,7 @@ export const Login = () => {
         </Form.Item>
 
         </div>
-   
+
         </div>
         {action === "Signup"? <div></div> :<div className = "forgot-password">Forgot password? <span>Click here</span></div> }
       
@@ -84,14 +86,17 @@ export const Login = () => {
             {action==="Signup"?"submit gray":"submit"}
             onClick={()=> {setAction("Login")}}
             >Login </div>
-            <button
+            <Button
              className='submit'
              type="primary" 
              htmlType="submit"
-             >Submit</button>
+             >Submit</Button>
         </div>
 
         </Form>     
+        </div>
+        : <div> You have Sucessfully Loggied in
+                   <Link to="/">Take Me Home Babygirl</Link>
         </div>
     );
 }

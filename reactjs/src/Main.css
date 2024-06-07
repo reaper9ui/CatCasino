@@ -5,17 +5,25 @@
     width: 100vw;
     background-color: papayawhip;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
-.main :first-child{
-    justify-content: start;
+.welcome{
+    font-size: 25px;
+    text-align: left;
+    margin-left: 20%;
 }
+
+.hr{
+    background-color: red;
+}
+
+
 .factContainer{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     margin: 10px;
     height: 300px;
@@ -27,9 +35,7 @@
 
 
 }
-.catbutt{
 
-}
 .catbutt:hover{
     cursor: pointer;
     box-shadow: 200px;

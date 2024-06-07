@@ -21,16 +21,16 @@ export const createUser = user => {
     },
     body: JSON.stringify(user),
     }
-    ).then(checkStatus) ;
+    ).then(checkStatus);
 }
 
-export const checkUser = username => {
-    console.log("LALALALALA: ", username); 
-    console.log("Stringifeid: ", username.username);
-    return fetch(`/api/v1/users/${username.username}`, {
+export const checkUser = user => {
+    console.log("Stringifeid: ", user.username);
+    return fetch(`/api/v1/users/${user.username}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         }
     })
 };
+

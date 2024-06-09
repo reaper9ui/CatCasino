@@ -3,18 +3,22 @@ import './LoginSignup.css';
 import EmailIcon from '@mui/icons-material/Email';
 import PersonIcon from '@mui/icons-material/Person';
 import LockIcon from '@mui/icons-material/Lock';
-import {useState, useRef} from 'react';
+import {useState, useRef, useContext, createContext} from 'react';
 import { Form, Button, Input } from 'antd';
 import { createUser } from './createUser';
 import { errorNotification } from './Notification';
 import { successNotification } from './Notification';
 import {Link} from 'react-router-dom'; 
+import { UserContext } from './userContext';
+
 
 
 export const Signup = () => {
     const[action, setAction] = useState("Signup"); 
+    const { setUser } = useContext(UserContext);
     const[submitting, setSubmitting] = useState(false);  
     const formRef = useRef(null); // Functional component with hooks
+
 
     const onFinish = user => {
         console.log("onFinish called with:", user);
@@ -24,6 +28,8 @@ export const Signup = () => {
         .then(() => {
             console.log("user addede yayy :3"); 
             successNotification("yayayay"); 
+            setUser(user);
+        
         })
         .catch(err => { 
             console.log(err.response);

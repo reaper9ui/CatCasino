@@ -22,12 +22,13 @@ public class UserController {
         return new ResponseEntity<>(createUser, HttpStatus.CREATED);
     }
 
-    @GetMapping("/user")
-    public ResponseEntity<User>getUser(@RequestBody User user){
-        User gotUser = userService.getUser(user);
+    @GetMapping("/{username}")
+    public ResponseEntity<User>getUser(@PathVariable String username){
         System.out.print("We are in get User ; ");
-        return gotUser != null ? new ResponseEntity<>(gotUser, HttpStatus.OK) : null ;
-
+        User gotUser = userService.getUser(username);
+        System.out.print("We are in get User ; ");
+        return gotUser != null ? new ResponseEntity<>(gotUser, HttpStatus.OK) :
+                new ResponseEntity<>(HttpStatus.NOT_FOUND) ;
     }
 
 

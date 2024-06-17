@@ -1,18 +1,12 @@
-server:
-  port: 8080
 spring:
-  application:
-    name: Users
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/register
-    username: postgres
-    password: summer2024
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/registerinfo
+    username: root
+    password: theg@ngstA1
   jpa:
-    hibernate:
-      ddl-auto: create-drop
-    show-sql: true
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect # Use appropriate MySQL dialect
+    hibernate:
+      ddl-auto: update # Configure DDL behavior (e.g., update, create, validate)
